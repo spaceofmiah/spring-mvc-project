@@ -152,17 +152,195 @@
             <!--** your event -->
             
             
-            <!-- fast and easy -->
+            
+            <section class="week_hall">
+                <div>
+                    <article>
+                        <div>
+                            <h2>hall for the week</h2>
+                            <p>
+                                Do you want a top notch and perfect hall ? book hall of the week and get the experience of a beautiful event center
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <img src="<c:url value="/resources/images/space-5.jpg" />" />
+                            <p>
+                                <span>capacity :</span>
+                                3000 person
+                            </p>
+                            <p>
+                                <span>parking space :</span>
+                                Yes
+                            </p>
+                            
+                            <a href="#" class="book_hall_btn">
+                                <!-- book hall link -->
+                                book hall
+                            </a>
+                        </div>  
+                    </article>
+                </div>
+            </section>
+            
+            
+            <!--fast and easy--> 
             <section class="fast_easy">
                 <h2>fast and easy</h2>
-                <p>
-                    You can now easily book your desired event space without following tedious and time taking procedures.
-                    With us, you get direct contact with event managers and do your transaction easily. Booking has never been this quick, fast and efficient
-                </p>
+                <p>You can now easily book your desired event space without following tedious and time taking procedures.</p>
+                
+                <div>
+                    <!-- article -->
+                    
+                    <article>
+                        <div>
+                            <h4>direct access</h4>
+                            <p>
+                                we provide you a direct access to event managers for prompt and secured transactions. Event space booking 
+                                has never been this quick, fast and efficient.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <img src="<c:url value="/resources/images/speed-1.jpg" />" />
+                        </div>
+                    </article>
+                        
+                    <!--** article -->    
+                     
+                    
+                    <!-- article -->
+                    
+                    <article>
+                        <div class="flex_lg">
+                            <img src="<c:url value="/resources/images/speed-1.jpg" />" />
+                        </div>
+                        
+                        <div>
+                            <h4>secured payment</h4>
+                            <p>
+                                we provide you a direct access to event managers for prompt and secured transactions. Event space booking 
+                                has never been this quick, fast and efficient.
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <!--** article -->
+                    
+                    
+                    <!-- article -->
+                    
+                    <article>
+                        <div>
+                            <h4>quick survey</h4>
+                            <p>
+                                we provide you a direct access to event managers for prompt and secured transactions. Event space booking 
+                                has never been this quick, fast and efficient.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <img src="<c:url value="/resources/images/speed-1.jpg" />" />
+                        </div>
+                    </article>
+                        
+                    <!--** article -->
+                </div>
             </section>
-            <!--** fast and easy -->
+            <!--** fast and easy -->    
             
+            
+            <!-- services -->
+            <section class="services">
+                <h3>our services</h3>
+                <div>
+                    <div>
+                        <img src="<c:url value="/resources/images/event-5.jpg" />" />
+                    </div>
+                    
+                    <div>
+                        <article>
+                            <!-- image should placed here -->
+                            <h5>luxury halls</h5>
+                            <p>
+                                Whatever taste you may have on how the look of the hall should be like, we've got them all. 
+                                Just search for it and we will grant your wish.
+                            </p>
+                        </article>
+
+                        <article>
+                            <!-- image should placed here -->
+                            <h5>Event planners</h5>
+                            <p>
+                                With our well trained and experienced planners your event is sure to be top notch as everything 
+                                from start to end will be well planned and organized.
+                            </p>
+                        </article>
+
+                        <article>
+                            <!-- image should placed here -->
+                            <h5>Security</h5>
+                            <p>
+                                Concerned about security for your event ? we also provide experienced detective, bouncers, 
+                                and well trained securities to give you a secured event.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!--** services -->
         </main>
         <!--** main -->
+        
+        <!-- footer -->
+        <footer>
+            <section>
+                <h1>Concertio</h1>
+                <div>
+                    
+                    <article>
+                        <ul>                        
+                            <li>
+                                <a href="#">halls</a>
+                            </li>
+
+                            <li>
+                                <a href="#">security</a>
+                            </li>
+
+                            <li>
+                                <a href="#">event planner</a>
+                            </li>
+                        </ul>
+
+
+                        <ul>
+                            <li>
+                                <a href="#">frequent questions</a>
+                            </li>
+
+                            <li>
+                                <a href="#">contact us</a>
+                            </li>
+
+                            <li>
+                                <a href="#">about us</a>
+                            </li>
+                        </ul>
+                    </article>
+
+
+                    <div>
+                        <a href="#" class="register_btn">Register</a>
+                        <a href="#" class="login_btn">Log In</a>
+                    </div>
+                </div>  
+                
+                <span>
+                    <p>copyright &copy; 2019 <b>Concertio</b></p>
+                </span>
+            </section>
+        </footer>
+        <!--** footer -->
     </body>
 </html>

@@ -12,7 +12,7 @@ and open the template in the editor.
 :root{
     --main-color: #F0EFF4;
     --primary-color: #131200;
-    --secondary-color: #832161;
+    --secondary-color: #ffca66;
     --tertiary-color: #DA4167;
     --hover-color: #ffa1b8;
 }
@@ -45,6 +45,18 @@ img {
 a {
     text-decoration: none;
     color: var(--tertiary-color);
+}
+
+
+footer {
+    width: 100%;
+    padding: 48px 18px;
+    margin-top: 104px;
+    background: var(--primary-color);
+}
+
+ul {
+    list-style-type: none;
 }
 
 /*
@@ -100,7 +112,39 @@ a {
     color: var(--hover-color);
 }
 
+flex_lg {
+    flex: 1;
+}
 
+.register_btn {
+    padding: 8px;
+    display: block;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+    
+    transition: background .3s ease-in-out;
+}
+
+.register_btn:hover {
+    background: var(--secondary-color);
+}
+
+.login_btn {
+    padding: 8px;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    
+    transition: background .3s ease-in-out;
+}
+
+.login_btn:hover {
+    background: var(--main-color);
+}
 
 /*
     *
@@ -166,6 +210,7 @@ a {
 
 .halls > h2 {
     text-align: center;
+    color: var(--tertiary-color);
     margin-bottom: 24px;
 }
 
@@ -215,6 +260,7 @@ a {
 
 .your_event h2 {
     margin-bottom: 24px;
+    color: var(--tertiary-color);
 }
 
 @media screen and (min-width: 920px) {
@@ -226,10 +272,296 @@ a {
 
 /*
     *
+    Week halls
+    *
+*/
+.week_hall {
+    width: 100%;
+    background: url("./images/event-5.jpg") no-repeat center center;
+    object-fit: cover;
+    background-size: cover;
+    color: var(--main-color);
+    margin: 48px 0;
+}
+
+.week_hall > div {
+    width: 100%;
+    height: 100%;
+    background: #2d2d2cc2;
+    padding: 28px;
+}
+
+.week_hall > div article {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 18px;
+    align-items: center;
+    justify-content: center;
+}
+
+.week_hall > div article h2 {
+    color: var(--secondary-color);
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+
+.week_hall > div article div:nth-child(2) {
+    padding: 18px;
+    background: var(--main-color);
+    text-align: center;
+    font-size: 16px;
+}
+
+.week_hall > div article div:nth-child(2) p {
+  color: var(--primary-color);
+  margin: 8px 0;
+}
+
+
+@media screen and (min-width: 620px){
+    .week_hall > div article {
+        grid-template-columns: 1fr 320px;
+    }
+}
+
+@media screen and (min-width: 900px){
+    .week_hall > div article {
+        grid-template-columns: 580px 320px;
+    }
+}
+
+
+/*
+    *
         Fast and Easy
     *
 */
 .fast_easy {
-    margin-top: 160px;
+    margin: 0 auto;
+    margin-top: 50px;
     padding: 18px;
+    
+    transition: margin-top .3s ease-in-out;
+}
+
+.fast_easy > h2 {
+    color: var(--tertiary-color);
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.fast_easy > p {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.fast_easy > div {
+    margin-top: 28px;
+}
+
+.fast_easy > div article {
+    margin: 18px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fast_easy > div article:nth-child(2) {
+    flex-direction: column-reverse;
+}
+
+.fast_easy > div article div {
+    padding: 10px;
+}
+
+.fast_easy > div article h4 {
+    margin-bottom: 10px;
+}
+
+
+.fast_easy > div article p {
+    padding: 0 10px 10px 0;
+    font-size: 17px;
+}
+
+
+@media screen and (min-width: 1030px){
+    .fast_easy {
+        width: 1024px;
+    }
+}
+
+
+@media screen and (min-width: 820px){
+    .fast_easy {
+        margin-top: 160px;
+    }
+}
+
+@media screen and (min-width: 620px){
+    .fast_easy > div article {
+        flex-wrap: nowrap;
+    }
+    
+    .fast_easy > div article:nth-child(2) {
+      flex-direction: row;   
+    }
+}
+
+
+/*
+    *
+        Services
+    *
+*/
+.services {
+    margin-top: 58px;
+}
+
+.services h3 {
+    text-align: center;
+    color: var(--tertiary-color);
+}
+
+.services > div {
+  margin-top: 32px;
+  display: grid;
+  grid-gap: 18px;
+  grid-template-areas: 't' 'b';
+  justify-content: center;
+}
+
+.services > div div:nth-child(1){
+    grid-area: b;
+}
+
+.services > div div:nth-child(2) {
+    grid-area: t;
+    padding: 18px;
+    display: grid;
+    grid-gap: 19px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+    align-items: center;
+}
+
+.services > div div:nth-child(2) article h5{
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 320px){
+    .services > div {
+        grid-template-columns: 1fr;
+    }
+    
+    .services > div div:nth-child(2) article {
+        padding: 18px;
+    }
+}
+
+
+@media screen and (min-width: 720px) {
+    .services > div {
+        grid-template-areas: unset;
+        grid-template-columns: 320px 1fr;
+    }
+    
+    .services > div div:nth-child(1) {
+        grid-area: unset;
+        padding-left: 18px;
+        align-self: center;
+    }
+    
+    .services > div div:nth-child(1) img{
+        height: 320px;
+    }
+  
+    .services > div div:nth-child(2) {
+        grid-area: unset;
+    }
+}
+
+@media screen and (min-width: 820px) {
+    .services > div {
+        grid-template-columns: 400px 1fr;
+    }
+    
+    .services > div div:nth-child(1) img{
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 1446px) {
+    .services > div {
+        grid-template-columns: 650px 1fr;
+    }
+    
+    .services > div div:nth-child(1) img{
+        height: 500px;
+    }
+    
+    .services {
+        margin: 0 auto;
+        width: 1445px;
+    }
+}
+
+
+/*
+    *
+        footer
+    *
+*/
+
+footer h1 {
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+footer section ul {
+    margin: 38px 0;
+    text-align: center;
+}
+
+footer section ul li {
+    font-size: 16px;
+    margin: 10px 0;
+    text-transform: lowercase;
+}
+
+footer section span {
+    display: block;
+    margin-top: 68px;
+}
+
+
+footer section span p {
+    font-size: 14px;
+    color: var(--main-color);
+    text-align: center;
+}
+
+
+@media screen and (min-width: 620px){
+    footer section > div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 922px){
+    footer section {
+        margin: 0 auto;
+        width: 920px;
+    }
+    
+    footer section > div article {
+        flex: .6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
