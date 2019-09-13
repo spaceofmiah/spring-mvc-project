@@ -1,5 +1,5 @@
 
-package com.springmvcproject.concertio;
+package com.springmvcproject.controllers;
 
 import org.springframework.stereotype.Controller;
 
