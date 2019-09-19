@@ -26,18 +26,21 @@
         
         <!-- hero -->
         <header class="hero">
-            <h1>Concertio</h1>
-            <p>book your event space</p>
+        	<section>
+        	
+        		<h1>Concertio</h1>
+	            <p>book your event space</p>
+	            
+	            <div>
+	                <form action="" method="POST" id="heroSearch">
+	                    <div class="form_group"> 
+	                        <input class="form_input" type="text" placeholder="Enter event location" />
+	                    </div>
+	                    <input class="form_submit_btn" type="submit" value="Search">
+	                </form>
+	            </div>
             
-            <div>
-                <form action="" method="POST">
-                    <div class="form_group"> 
-                        <input class="form_input" type="text" placeholder="Enter event location" />
-                    </div>
-                    <input class="form_submit_btn" type="submit" value="Search">
-                </form>
-            </div>
-            
+        	</section>            
         </header>
         <!-- ** hero -->
         

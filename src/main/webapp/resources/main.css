@@ -152,25 +152,34 @@ flex_lg {
     *
 */
 .hero {
-    padding: 18px;
     width: 100%;
     height: 45vh;
-    background-color: var(--main-color);
+    background: url("./images/space-8.jpg") no-repeat center center;
+    object-fit: cover;
+	background-size: cover;
     text-align: center;
 }
 
-.hero h1 {
+.hero section {
+	padding: 18px;
+	width: 100%;
+	height: 100%;
+	background-color: #2d2d2cc2;
+}
+
+.hero section h1 {
     font-size: 54px;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     margin-bottom: 24px;
 }
 
-.hero p {
+.hero section p {
     text-transform: capitalize;
     font-size: 30px;
+    color: var(--main-color);
 }
 
-.hero > div {
+.hero section > div {
     position: relative;
     top: 50px;
     width: 70%;
@@ -178,20 +187,29 @@ flex_lg {
     min-width: 320px;
     height: 160px;
     margin: 0 auto;
-    background-color: #ccc;
+    background-color: var(--primary-color);
     padding: 18px;
     
     transition: .3s ease-in-out;
 }
 
+.hero #heroSearch .form_submit_btn {
+	color: var(--main-color);
+}
+
+
+.hero #heroSearch .form_submit_btn:hover {
+	color: var(--primary-color);
+}
+
 @media screen and (min-width: 421px){
-    .hero > div {
+    .hero section > div {
         top: 120px;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .hero > div {
+    .hero section > div {
         min-width: 280px;
     }
 }
