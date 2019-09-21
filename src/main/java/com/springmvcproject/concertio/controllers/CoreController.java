@@ -2,6 +2,8 @@
 package com.springmvcproject.concertio.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -19,5 +21,10 @@ public class CoreController {
             about us page, faq page e.t.c
         *
     */
+	
+	@RequestMapping(value="/register", method=RequestMethod.GET)
+	public String registrationPageRoute() {
+		return "registrationPage";
+	}
     
 }

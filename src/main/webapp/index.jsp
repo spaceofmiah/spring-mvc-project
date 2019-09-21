@@ -293,15 +293,13 @@
 
 
 				<div>
-					<a href="#" class="register_btn">Register</a> <a href="#"
+					<a href="register" class="register_btn">Register</a> <a href="#"
 						class="login_btn">Log In</a>
 				</div>
 			</div>
 
 			<span>
-				<p>
-					copyright &copy; 2019 <b>Concertio</b>
-				</p>
+				<p>copyright &copy; 2019 <b>Concertio</b></p>
 			</span>
 		</section>
 	</footer>
