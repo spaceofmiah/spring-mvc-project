@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.springmvcproject.models;
+package com.springmvcproject.concertio.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.GenericGenerator;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  *
@@ -24,8 +24,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Hall {
     
     @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy="increment")
+    @GeneratedValue(strategy=IDENTITY)
     @Column(name="id")
     private Integer id;
     
