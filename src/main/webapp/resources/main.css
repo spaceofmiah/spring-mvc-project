@@ -548,3 +548,79 @@ footer section span p {
 		align-items: center;
 	}
 }
+
+
+
+/*
+	*
+		REGISTRATION PAGE STYLES
+	*
+*/
+
+main#register {
+	padding: 18px;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	background: url("./images/space-6.jpg") no-repeat center center;
+	background-sizing: cover;
+	object-fit: cover;
+} 
+
+#register #form_wrap {
+	width: 100%;
+	background: var(--primary-color);
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	padding: 18px 12px;
+}
+
+#register #form_wrap > div {
+	text-align: center;
+	color: var(--tertiary-color);
+	margin-bottom: 2px;
+}
+
+#register #form_wrap h1 {
+	color: var(--main-color);
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+#register #form_wrap a {
+	display: block;
+	text-align: center;
+	color: var(--tertiary-color);
+	margin-top: 12px;
+	font-size: 14px;
+}
+
+#register_btn_wrap {
+	text-align: center; 
+	margin-top: 18px;
+}
+
+#register_btn_wrap input[type="submit"]{
+	color: var(--secondary-color);
+}
+
+#register_btn_wrap input[type="submit"]:hover {
+	color: var(--primary-color) ;
+}
+
+
+@media screen and (min-width: 620px){
+	#register #form_wrap {
+		width: 520px;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (min-width: 820px){
+	#register #form_wrap {
+		width: 620px;
+		border: 6px solid;
+		border-radius: 10px;
+		border-color: var(--secondary-color);
+	}
+}
