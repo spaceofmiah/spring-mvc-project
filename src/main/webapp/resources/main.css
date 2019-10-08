@@ -565,6 +565,7 @@ main#register {
 	background: url("./images/space-6.jpg") no-repeat center center;
 	background-sizing: cover;
 	object-fit: cover;
+	color: var(--main-color)
 } 
 
 #register #form_wrap {
@@ -587,7 +588,7 @@ main#register {
 	padding-bottom: 10px;
 }
 
-#register #form_wrap a {
+#register #form_wrap #loginLink {
 	display: block;
 	text-align: center;
 	color: var(--tertiary-color);

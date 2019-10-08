@@ -12,9 +12,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class CoreController {	
-	@RequestMapping(value="/register", method=RequestMethod.GET)
-	public String registrationPageRoute() {
-		return "registrationPage";
+	/**
+	 * non form handling controller
+	 */
+	
+	@RequestMapping(value="aboutus", method=RequestMethod.GET)
+	public String aboutUsRoute() {
+		return "";
 	}
-    
+	
+	@RequestMapping(value="services", method=RequestMethod.GET)
+	public String serviceRoute() {
+		return "";
+	}
+	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String indexRoute() {
+		return "";
+	}
 }

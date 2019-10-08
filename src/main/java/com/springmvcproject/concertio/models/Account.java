@@ -13,8 +13,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-@Table(name="Admin")
-public class Admin {
+@Table(name="Account")
+public class Account {
 	
 	@Id
 	@Column(name="id")
@@ -47,8 +47,24 @@ public class Admin {
 	@Column(name="date_joined")
 	private Date dateJoined;
 	
+	/**
+	 * The below properties can only be true if a user
+	 * is an admin
+	 */
+	
     @Column(name="is_admin")
-    private Boolean isAdmin;
+    private Boolean isAdmin = false;
+    
+    @Column(name="is_superuser")
+    private Boolean isSuperUser = false;
+    
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getEmail() {
 		return email;
@@ -106,5 +122,20 @@ public class Admin {
 		this.dateJoined = dateJoined;
 	}
 
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	public Boolean getIsSuperUser() {
+		return isSuperUser;
+	}
+
+	public void setIsSuperUser(Boolean isSuperUser) {
+		this.isSuperUser = isSuperUser;
+	}
 
 }
