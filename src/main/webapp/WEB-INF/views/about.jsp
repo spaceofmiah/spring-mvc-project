@@ -1,16 +1,19 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spring</title>
+    <title>About | Concertio</title>
     <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/Features-Clean.css">
-    <link rel="stylesheet" href="resources/Footer-Dark.css">
-    <link rel="stylesheet" href="resources/Navigation-Clean.css">
-    <link rel="stylesheet" href="resources/styles.css">
-    <link rel="stylesheet" href="resources/Testimonials.css">
+    <link rel="stylesheet" href="resources/aboutPageResources/font/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/aboutPageResources/font/ionicons.min.css">
+    <link rel="stylesheet" href="resources/aboutPageResources/css/Features-Clean.css">
+    <link rel="stylesheet" href="resources/aboutPageResources/css/Footer-Dark.css">
+    <link rel="stylesheet" href="resources/aboutPageResources/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="resources/aboutPageResources/css/styles.css">
+    <link rel="stylesheet" href="resources/aboutPageResources/css/Testimonials.css">
 </head>
 
 <body>
@@ -20,8 +23,8 @@
                 <div class="collapse navbar-collapse"
                     id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="index.jsp">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="about">About</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="#">Book Center</a></li>
                     </ul>
                 </div>
