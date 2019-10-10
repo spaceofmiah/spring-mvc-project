@@ -287,7 +287,7 @@
 
 						<li><a href="#">contact us</a></li>
 
-						<li><a href="#">about us</a></li>
+						<li><a href="about">about us</a></li>
 					</ul>
 				</article>
 

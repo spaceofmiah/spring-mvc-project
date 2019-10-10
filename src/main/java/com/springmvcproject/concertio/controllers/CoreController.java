@@ -16,9 +16,9 @@ public class CoreController {
 	 * non form handling controller
 	 */
 	
-	@RequestMapping(value="aboutus", method=RequestMethod.GET)
+	@RequestMapping(value="/about", method=RequestMethod.GET)
 	public String aboutUsRoute() {
-		return "";
+		return "about";
 	}
 	
 	@RequestMapping(value="services", method=RequestMethod.GET)
