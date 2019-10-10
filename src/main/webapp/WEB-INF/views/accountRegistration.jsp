@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -20,37 +22,42 @@
 					<p>Create your free account</p>		
 				</div>
 		
-				<form>
+				<form:form action="." modelAttribute="account">
 					<div class="form_group">
-						<input type="text" class="form_input" placeholder="First Name" />
+						<form:input type="text" path="firstName" id="firstName" class="form_input" placeholder="First Name" />
 					</div>
 					
 					<div class="form_group">
-						<input type="text" class="form_input" placeholder="Middle Name" />
+						<form:input type="text" path="middleName" id="lastName" class="form_input" placeholder="Middle Name" />
 					</div>
 					
 					<div class="form_group">
-						<input type="text" class="form_input" placeholder="Last Name" />
+						<form:input type="text" path="lastName" id="lastName" class="form_input" placeholder="Last Name" />
 					</div>
 					
 					<div class="form_group">
-						<input type="email" class="form_input" placeholder="Email" />
+						<form:input type="email" path="email" id="email" class="form_input" placeholder="Email" />
 					</div>
 					
 					<div class="form_group">
-						<input type="password" class="form_input" placeholder="Password" />
+						<form:input type="password" path="password" id="password" class="form_input" placeholder="Password" />
 					</div>
 					
 					<div class="form_group">
-						<input type="password" class="form_input" placeholder="Confirm Password" />
+						<form:input type="password" path="confirmPassword" id="confirmPassword" class="form_input" placeholder="Confirm Password" />
+					</div>
+					
+					<div class="form_group">
+						<form:checkbox path="acceptTerms" id="acceptTerms" />
+						<label>I accept the <a href="#">terms of use</a></label>
 					</div>
 					
 					<div class="form_group" id="register_btn_wrap">				
 						<input type="submit" class="form_submit_btn" value="Create account" />
 					</div>
-				</form>
+				</form:form>
 				
-				<a href="#">login instead</a>
+				<a href="#" id="loginLink">login instead</a>
 			</section>
 		</main>
 	</body>

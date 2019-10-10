@@ -293,7 +293,7 @@
 
 
 				<div>
-					<a href="register" class="register_btn">Register</a> <a href="#"
+					<a href="account/create" class="register_btn">Register</a> <a href="#"
 						class="login_btn">Log In</a>
 				</div>
 			</div>

@@ -11,20 +11,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 @Controller
-public class CoreController {
-    
-    /*
-        *
-            this conroller will be used to handle routes and pages
-            that do not include forms processing  e.g
-            
-            about us page, faq page e.t.c
-        *
-    */
+public class CoreController {	
+	/**
+	 * non form handling controller
+	 */
 	
-	@RequestMapping(value="/register", method=RequestMethod.GET)
-	public String registrationPageRoute() {
-		return "registrationPage";
+	@RequestMapping(value="aboutus", method=RequestMethod.GET)
+	public String aboutUsRoute() {
+		return "";
 	}
-    
+	
+	@RequestMapping(value="services", method=RequestMethod.GET)
+	public String serviceRoute() {
+		return "";
+	}
+	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String indexRoute() {
+		return "";
+	}
 }
