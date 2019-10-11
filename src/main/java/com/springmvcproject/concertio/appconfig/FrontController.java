@@ -1,8 +1,10 @@
 package com.springmvcproject.concertio.appconfig;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -14,6 +16,18 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages= {"com.springmvcproject.concertio"})
 public class FrontController implements WebMvcConfigurer {
+	
+	/**
+	 *  Declares were custom error, success, warning or debug messages
+	 *  are saved.
+	 * @return
+	 */
+	@Bean(name="messageSource")
+	public MessageSource getMessageSource() {
+	    ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+	    messageSource.setBasename("messages");
+	    return messageSource;
+	}
 	
 	// Declare the static resources.
 	@Override
