@@ -94,6 +94,12 @@
 				<div class="form_group">
 					<form:checkbox path="acceptTerms" id="acceptTerms" />
 					<label>I accept the <a href="#">terms of use</a></label>
+					
+					<form:errors path="acceptTerms">
+						<div class="error">
+							<form:errors path="acceptTerms" htmlEscape="false" />
+						</div>
+					</form:errors>
 				</div>
 
 				<div class="form_group" id="register_btn_wrap">
