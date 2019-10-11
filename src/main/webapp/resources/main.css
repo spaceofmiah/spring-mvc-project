@@ -139,6 +139,17 @@ flex_lg {
 	background: var(--main-color);
 }
 
+.error {
+	font-size: 16px;
+	color: #ff6c6c;
+	text-align: center;
+	padding: 8px 10px;
+	background: #725858;	
+	border-radius: 4px;
+	width: fit-content;
+	margin: 8px 0;
+}
+
 /*
     *
         Hero
