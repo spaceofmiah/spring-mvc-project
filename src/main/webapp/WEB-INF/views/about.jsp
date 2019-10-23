@@ -25,7 +25,7 @@
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link" href="index.jsp">Home</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="about">About</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Book Center</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="bookEvent">Book Center</a></li>
                     </ul>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     <div class="box">
                         <p class="description">Customer service is soooo great!!! And the guy i spoke to was so polite.</p>
                     </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/1.jpg">
+                    <div class="author"><img class="rounded-circle" src="resources/aboutPageResources/img/1.jpg">
                         <h5 class="name">Ben Johnson</h5>
                         <p class="title">CEO of Company Inc.</p>
                     </div>
@@ -97,7 +97,7 @@
                     <div class="box">
                         <p class="description">You guys are awesome. I still can't believe i planned my son's birthday party in just 3 minutes!!!</p>
                     </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/3.jpg">
+                    <div class="author"><img class="rounded-circle" src="resources/aboutPageResources/img/3.jpg">
                         <h5 class="name">Carl Kent</h5>
                         <p class="title">Founder of Style Co.</p>
                     </div>
@@ -106,7 +106,7 @@
                     <div class="box">
                         <p class="description">70% discount from the app!!! I LOVE you guys!.</p>
                     </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/2.jpg">
+                    <div class="author"><img class="rounded-circle" src="resources/aboutPageResources/img/2.jpg">
                         <h5 class="name">Emily Clark</h5>
                         <p class="title">Owner of Creative Ltd.</p>
                     </div>

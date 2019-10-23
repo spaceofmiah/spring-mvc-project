@@ -1,4 +1,3 @@
-
 package com.springmvcproject.concertio.controllers;
 
 import org.springframework.stereotype.Controller;
@@ -9,25 +8,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author spaceofmiah
  */
-
 @Controller
-public class CoreController {	
-	/**
-	 * non form handling controller
-	 */
-	
-	@RequestMapping(value="/about", method=RequestMethod.GET)
-	public String aboutUsRoute() {
-		return "about";
-	}
-	
-	@RequestMapping(value="services", method=RequestMethod.GET)
-	public String serviceRoute() {
-		return "";
-	}
-	
-	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String indexRoute() {
-		return "";
-	}
+public class CoreController {
+
+    /**
+     * non form handling controller
+     */
+
+    @RequestMapping(value = "bookEvent", method = RequestMethod.GET)
+    public String BookEventRoute() {
+        return "bookEvent";
+    }
+
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public String aboutUsRoute() {
+        return "about";
+    }
+
+    @RequestMapping(value = "services", method = RequestMethod.GET)
+    public String serviceRoute() {
+        return "";
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String indexRoute() {
+        return "";
+    }
 }
