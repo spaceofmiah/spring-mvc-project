@@ -1,11 +1,23 @@
 package com.springmvcproject.concertio.formbeans;
 
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.ScriptAssert;
+
 /**
  * An account form for creating a user account
  * 
  * @author spaceofmiah
  *
  */
+
+@ScriptAssert(
+		lang="javascript",
+		script="_this.confirmPassword.equals(_this.password)",
+		message="account.password.mismatch.message")
 public class AccountCreationForm {
 
 	private String firstName;
@@ -16,6 +28,7 @@ public class AccountCreationForm {
 	private String confirmPassword;
 	private Boolean acceptTerms = false;
 
+	@NotNull	@Size(min=1, max=100)
 	public String getFirstName() {
 		return firstName;
 	}
@@ -24,6 +37,8 @@ public class AccountCreationForm {
 		this.firstName = firstName;
 	}
 
+	// middle name is not really important during registration
+	// it can be updated after registration
 	public String getMiddleName() {
 		return middleName;
 	}
@@ -32,6 +47,7 @@ public class AccountCreationForm {
 		this.middleName = middleName;
 	}
 
+	@NotNull 	@Size(min=1, max=100)
 	public String getLastName() {
 		return LastName;
 	}
@@ -40,6 +56,7 @@ public class AccountCreationForm {
 		LastName = lastName;
 	}
 
+	@NotNull	@Size(min=1, max=100)	 @Email
 	public String getEmail() {
 		return email;
 	}
@@ -48,6 +65,7 @@ public class AccountCreationForm {
 		this.email = email;
 	}
 
+	@NotNull	@Size(min=6, max=100)
 	public String getPassword() {
 		return password;
 	}
@@ -64,6 +82,7 @@ public class AccountCreationForm {
 		this.confirmPassword = confirmPassword;
 	}
 
+	@AssertTrue(message="{account.acceptTerms.assertTrue.message}")
 	public Boolean getAcceptTerms() {
 		return acceptTerms;
 	}
