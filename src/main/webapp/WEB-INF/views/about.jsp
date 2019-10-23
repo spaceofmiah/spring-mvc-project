@@ -17,20 +17,9 @@
 </head>
 
 <body>
-    <div>
-        <nav class="navbar navbar-dark navbar-expand-md bg-primary navigation-clean">
-            <div class="container"><a class="navbar-brand" href="#">Concertio</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse"
-                    id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="index.jsp">Home</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="about">About</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="bookEvent">Book Center</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+    
+    <%@include file="navbar.jsp" %>
+    
     <div class="features-clean">
         <div class="container">
             <div class="intro">
@@ -113,7 +102,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
+    <%@include file="footer.jsp" %>
     <div class="footer-dark" style="background-color:rgb(0,123,255);">
         <footer>
             <div class="container">
