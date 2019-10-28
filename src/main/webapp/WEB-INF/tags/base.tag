@@ -1,30 +1,25 @@
 <%@tag description="Base template tag" pageEncoding="UTF-8"%>
-<%@attribute name="block_head" fragment="true"%>
-<%@attribute name="block_script" fragment="true"%>
-
 <html>
-
-<head>
-<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="resources/aboutPageResources/font/font-awesome.min.css">
-<link rel="stylesheet"
-	href="resources/aboutPageResources/font/ionicons.min.css">
-<link rel="stylesheet"
-	href="resources/aboutPageResources/css/Features-Clean.css">
-<link rel="stylesheet"
-	href="resources/aboutPageResources/css/Footer-Dark.css">
-<link rel="stylesheet"
-	href="resources/aboutPageResources/css/Navigation-Clean.css">
-<link rel="stylesheet"
-	href="resources/aboutPageResources/css/styles.css">
-<link rel="stylesheet"
-	href="resources/aboutPageResources/css/Testimonials.css">
-
-	<jsp:invoke fragment="block_head"/>
-</head>
+	<head>
+		<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet"
+			href="resources/aboutPageResources/font/font-awesome.min.css">
+		<link rel="stylesheet"
+			href="resources/aboutPageResources/font/ionicons.min.css">
+		<link rel="stylesheet"
+			href="resources/aboutPageResources/css/Features-Clean.css">
+		<link rel="stylesheet"
+			href="resources/aboutPageResources/css/Footer-Dark.css">
+		<link rel="stylesheet"
+			href="resources/aboutPageResources/css/Navigation-Clean.css">
+		<link rel="stylesheet"
+			href="resources/aboutPageResources/css/styles.css">
+		<link rel="stylesheet"
+			href="resources/aboutPageResources/css/Testimonials.css">
+	</head>
 
 <body>
+	<!-- nav bar -->
 	<nav
 		class="navbar navbar-dark navbar-expand-md bg-primary navigation-clean">
 		<div class="container">
@@ -47,10 +42,15 @@
 		</div>
 	</nav>
 
+	<!-- body content  -->
 	<div>
-		<jsp:doBody />
+			
+			<jsp:doBody/>
+		
 	</div>
 
+
+	<!-- footer -->
 	<div class="footer-dark" style="background-color: rgb(0, 123, 255);">
 		<footer>
 			<div class="container">
@@ -90,8 +90,7 @@
 		</footer>
 	</div>
 
+	
 	<script src="resources/bootstrap/js/bootstrap.min.js"></script>
-	<jsp:invoke fragment="block_script"/>
 </body>
-
 </html>

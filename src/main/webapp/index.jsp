@@ -263,7 +263,8 @@
 			</div>
 		</div>
 	</section>
-	<!--** services --> </main>
+	<!--** services --> 
+	</main>
 	<!--** main -->
 
 	<!-- footer -->
