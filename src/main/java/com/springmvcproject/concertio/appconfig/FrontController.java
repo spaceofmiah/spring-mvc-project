@@ -11,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages= {"com.springmvcproject.concertio"})
@@ -36,14 +35,12 @@ public class FrontController implements WebMvcConfigurer {
 		.setCachePeriod(31556926);
 	}
 	
-	
 	// <=> <mvc:default-servlet-handler/>
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
-	
-	
+		
 	// view resolver, structural location for all views
 	@Bean
 	InternalResourceViewResolver viewResolver(){
