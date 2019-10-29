@@ -3,15 +3,23 @@ package com.springmvcproject.concertio.models;
 import java.util.Date;
 
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 
+
+@NamedQuery(
+		name = "findAccountByEmail",
+		query = "from Account where email = :email"
+)
 @Entity
 @Table(name="Account")
 public class Account {
@@ -39,24 +47,21 @@ public class Account {
 	@Column(name="phone_number", length=16)
 	private String phoneNumber;
 	
-	@NotNull
-	@Column(name="pass_key", length=100)
-	private String password;
-	
-	@NotNull
+	@Null
 	@Column(name="date_joined")
 	private Date dateJoined;
 	
+	@Column(name="accept_terms")
+	private boolean acceptTerms;
+	
+
 	/**
 	 * The below properties can only be true if a user
 	 * is an admin
 	 */
 	
-    @Column(name="is_admin")
-    private Boolean isAdmin = false;
-    
-    @Column(name="is_superuser")
-    private Boolean isSuperUser = false;
+    @Column(name="is_active")
+    private Boolean isActive = true;    
     
 	public Integer getId() {
 		return id;
@@ -106,14 +111,6 @@ public class Account {
 		this.phoneNumber = mobileNumber;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public Date getDateJoined() {
 		return dateJoined;
 	}
@@ -122,20 +119,21 @@ public class Account {
 		this.dateJoined = dateJoined;
 	}
 
-	public Boolean getIsAdmin() {
-		return isAdmin;
+	
+	public boolean isAcceptTerms() {
+		return acceptTerms;
 	}
 
-	public void setIsAdmin(Boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setAcceptTerms(boolean acceptTerms) {
+		this.acceptTerms = acceptTerms;
 	}
 
-	public Boolean getIsSuperUser() {
-		return isSuperUser;
+	@Transient
+	public String getFullName() {
+		return this.firstName + " " + this.lastName;
 	}
-
-	public void setIsSuperUser(Boolean isSuperUser) {
-		this.isSuperUser = isSuperUser;
+	
+	public String toString() {
+		return "<Account: " + this.getFullName() + " >";
 	}
-
 }
