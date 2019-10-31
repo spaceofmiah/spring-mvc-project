@@ -1,4 +1,4 @@
-<%@tag description="Base template tag" pageEncoding="UTF-8"%>
+<%@ tag description="Base template tag" pageEncoding="UTF-8"%>
 <html>
 	<head>
 		<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
@@ -14,16 +14,19 @@
 			href="resources/aboutPageResources/css/Navigation-Clean.css">
 		<link rel="stylesheet"
 			href="resources/aboutPageResources/css/styles.css">
+		<link rel="stylesheet" href="resources/main.css">
 		<link rel="stylesheet"
 			href="resources/aboutPageResources/css/Testimonials.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	</head>
 
 <body>
 	<!-- nav bar -->
 	<nav
-		class="navbar navbar-dark navbar-expand-md bg-primary navigation-clean">
+		id="top_nav_bar"
+		class="navbar navbar-dark navbar-expand-md navigation-clean">
 		<div class="container">
-			<a class="navbar-brand" href="#">Concertio</a>
+			<a class="navbar-brand" href="/concertio">Concertio</a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navcol-1">
 				<span class="sr-only">Toggle navigation</span><span
@@ -32,7 +35,7 @@
 			<div class="collapse navbar-collapse" id="navcol-1">
 				<ul class="nav navbar-nav ml-auto">
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="index.jsp">Home</a></li>
+						href="/concertio">Home</a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="about">About</a></li>
 					<li class="nav-item" role="presentation"><a
@@ -51,18 +54,19 @@
 
 
 	<!-- footer -->
-	<div class="footer-dark" style="background-color: rgb(0, 123, 255);">
+	
 		<footer>
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6 col-md-3 item">
 						<h3>Services</h3>
 						<ul>
-							<li><a href="#">Web design</a></li>
-							<li><a href="#">Development</a></li>
-							<li><a href="#">Hosting</a></li>
+							<li><a href="#">Event planning</a></li>
+							<li><a href="#">Event Decoration</a></li>
+							<li><a href="#">Security</a></li>
 						</ul>
 					</div>
+					
 					<div class="col-sm-6 col-md-3 item">
 						<h3>About</h3>
 						<ul>
@@ -71,26 +75,34 @@
 							<li><a href="#">Careers</a></li>
 						</ul>
 					</div>
+					
 					<div class="col-md-6 item text">
-						<h3>Concertio</h3>
 						<p>Praesent sed lobortis mi. Suspendisse vel placerat ligula.
 							Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis
 							tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel
 							in justo.</p>
+							
+							
+						<a class="btn btn-sm bg-primary text-white">
+							Create free account
+						</a>
 					</div>
+					<!--  
 					<div class="col item social">
 						<a href="#"><i class="icon ion-social-facebook"></i></a><a
 							href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i
 							class="icon ion-social-snapchat"></i></a><a href="#"><i
 							class="icon ion-social-instagram"></i></a>
 					</div>
+					-->
 				</div>
-				<p class="copyright">Concertio Â© 2019</p>
+				<p class="copyright">Concertio &copy; 2019</p>
 			</div>
 		</footer>
-	</div>
-
 	
-	<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
 </html>

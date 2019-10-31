@@ -3,24 +3,11 @@
     Created on : Sep 9, 2019, 4:21:42 PM
     Author     : spaceofmiah
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="<c:url value="/resources/main.css" />" />
-<title>Book best and convenient space for your event | Concertio</title>
-</head>
-
-
-<body>
-
-	<!-- nav -->
-	<nav></nav>
-	<!--** nav -->
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix='t' tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<t:base>
+	<title>Home - Concertio</title>
 
 	<!-- hero -->
 	<header class="hero">
@@ -68,8 +55,9 @@
 						</p>
 					</article>
 
-					<a href="#" class="book_hall_btn"> <!-- book hall link --> book
-						hall
+					<!-- book hall link --> 	
+					<a href="#" class="book_hall_btn"> 
+						book hall
 					</a>
 				</header>
 			</div>
@@ -129,7 +117,9 @@
 
 		</div>
 	</section>
-	<!-- trending --> <!-- your event -->
+	<!-- trending -->
+	
+	<!-- your event -->
 	<section class="your_event">
 		<h2>what's your event about ?</h2>
 		<p>Is it conference, birthday, marriage, album/book launch e.t.c,
@@ -266,44 +256,4 @@
 	<!--** services --> 
 	</main>
 	<!--** main -->
-
-	<!-- footer -->
-	<footer>
-		<section>
-			<h1>Concertio</h1>
-			<div>
-
-				<article>
-					<ul>
-						<li><a href="#">halls</a></li>
-
-						<li><a href="#">security</a></li>
-
-						<li><a href="#">event planner</a></li>
-					</ul>
-
-
-					<ul>
-						<li><a href="#">frequent questions</a></li>
-
-						<li><a href="#">contact us</a></li>
-
-						<li><a href="about">about us</a></li>
-					</ul>
-				</article>
-
-
-				<div>
-					<a href="account/create" class="register_btn">Register</a> <a href="#"
-						class="login_btn">Log In</a>
-				</div>
-			</div>
-
-			<span>
-				<p>copyright &copy; 2019 <b>Concertio</b></p>
-			</span>
-		</section>
-	</footer>
-	<!--** footer -->
-</body>
-</html>
+</t:base>
