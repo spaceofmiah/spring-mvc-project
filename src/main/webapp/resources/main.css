@@ -587,12 +587,11 @@ footer section span {
 */
 
 main#register {
-	padding: 18px;
-	height: 100vh;
+	padding: 60px 18px;
 	display: flex;
 	align-items: center;
 	background: url("./images/space-6.jpg") no-repeat center center;
-	background-sizing: cover;
+	background-size: cover;
 	object-fit: cover;
 	color: var(--main-color)
 } 

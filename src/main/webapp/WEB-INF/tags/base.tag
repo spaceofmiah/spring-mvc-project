@@ -38,8 +38,11 @@
 						href="/concertio">Home</a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="about">About</a></li>
-					<li class="nav-item" role="presentation"><a
-						class="nav-link active" href="bookEvent.jsp">Book Center</a></li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-sm bg-primary text-white" href="account/create">
+							Create free account
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -83,7 +86,7 @@
 							in justo.</p>
 							
 							
-						<a class="btn btn-sm bg-primary text-white">
+						<a class="btn btn-sm bg-primary text-white" href="account/create">
 							Create free account
 						</a>
 					</div>

@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Create a new account - Concertio</title>
 <link rel="stylesheet" href="<c:url value="/resources/main.css" />" />
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 
 		<section id="form_wrap">
 			<div>
-				<h1>Concertio</h1>
+				<a href="/concertio" style="font-size: 28px; color: white;">Concertio</a>
 				<p>Create your free account</p>
 			</div>
 
