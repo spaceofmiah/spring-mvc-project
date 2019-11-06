@@ -593,6 +593,7 @@ main#register {
 	background: url("./images/space-6.jpg") no-repeat center center;
 	background-size: cover;
 	object-fit: cover;
+	height: 100vh;
 	color: var(--main-color)
 } 
 
