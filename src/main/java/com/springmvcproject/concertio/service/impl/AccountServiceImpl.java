@@ -13,7 +13,7 @@ import com.springmvcproject.concertio.service.AccountService;
 
 @Service("accountService")
 @Transactional(readOnly = true)
-public class AccountServiceImpl implements AccountService {
+public class AccountServiceImpl implements AccountService{
 	
 	@Autowired private AccountDao accountDao;
 
@@ -36,5 +36,4 @@ public class AccountServiceImpl implements AccountService {
 			);
 		}
 	}
-
 }

@@ -38,6 +38,10 @@ public class AccountController {
 			"firstName", "middleName", "lastName", "email", "password", 
 			"confirmPassword", "acceptTerms");
 	}
+	
+
+	
+	
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public String getRegistrationForm(Model model) {
@@ -45,7 +49,8 @@ public class AccountController {
 		return VN_REG_FORM;
 	}
 
-	@RequestMapping(value = "", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "", method=RequestMethod.POST)
 	public String postRegistrationForm(
 			@ModelAttribute("account") @Valid AccountCreationForm form,
 			BindingResult result) {
@@ -56,6 +61,15 @@ public class AccountController {
 		);
 		return (result.hasErrors() ? VN_REG_FORM : VN_REG_OK);
 	}
+	
+	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String loginForm(Model model) {
+		return "loginPage";
+	}
+	
+	
+	
 	
 	private static Account toAccount(AccountCreationForm form) {
 		Account account = new Account();
