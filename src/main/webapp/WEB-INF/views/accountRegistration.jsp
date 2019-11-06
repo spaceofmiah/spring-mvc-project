@@ -107,7 +107,7 @@
 				</div>
 			</form:form>
 
-			<a href="#" id="loginLink">login instead</a>
+			<a href="login" id="loginLink">login instead</a>
 		</section>
 	</main>
 </body>
