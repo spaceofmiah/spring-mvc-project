@@ -15,7 +15,7 @@ public class CoreController {
      * non form handling controller
      */
 
-    @RequestMapping(value = "bookEvent", method = RequestMethod.GET)
+    @RequestMapping(value = "book-hall", method = RequestMethod.GET)
     public String BookEventRoute() {
         return "bookEvent";
     }
@@ -34,4 +34,10 @@ public class CoreController {
     public String indexRoute() {
         return "";
     }
+    
+    @RequestMapping(value = "/event-list", method = RequestMethod.GET)
+    public String eventListRoute() {
+        return "hallList";
+    }
+    
 }

@@ -25,7 +25,7 @@
 				<p>Login</p>
 			</div>
 
-			<form action="." >
+			<form action="<c:url value='j_spring_security_check' />" method="POST" >
 			
 				<div class="form_group">
 					<input type="email" id="email" class="form_input"	placeholder="Email" />
