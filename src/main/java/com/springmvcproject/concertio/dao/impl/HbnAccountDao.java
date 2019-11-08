@@ -1,24 +1,23 @@
 package com.springmvcproject.concertio.dao.impl;
-import javax.inject.Inject;
+
 import javax.sql.DataSource;
 
 import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.springmvcproject.concertio.dao.AccountDao;
 import com.springmvcproject.concertio.models.Account;
 
 @Repository("accountDao")
-public class HbnAccountDao extends AbstractHbnDao<Account> 
-	implements AccountDao {
-	
-	private static final String UPDATE_PASSWORD_SQL = 
-		"update account set password = ? where email = ?";
-
+public class HbnAccountDao extends AbstractHbnDao<Account>  implements AccountDao {
 	
 	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired PasswordEncoder passwordEncoder;	
+	
 	
 	public JdbcTemplate getJdbcTemplate() {
 	    return jdbcTemplate;
@@ -30,12 +29,9 @@ public class HbnAccountDao extends AbstractHbnDao<Account>
 	}
 	
 	@Override
-	public void create(Account account, String password) {
+	public void createAccount(Account account) {
+		account.setPassword(passwordEncoder.encode(account.getPassword()));
 		create(account);
-		System.out.println("Hello world");
-		jdbcTemplate.update(
-			UPDATE_PASSWORD_SQL, password, account.getEmail()
-		);
 	}
 
 	@SuppressWarnings({ "deprecation", "rawtypes" })
