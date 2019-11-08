@@ -2,12 +2,17 @@ package com.springmvcproject.concertio.appconfig;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.springmvcproject.concertio.appconfig.security.SecurityConfig;
+
+
+
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Class[] {
+			HibernateConfig.class, SecurityConfig.class,
+		};
 	}
 
 	@Override

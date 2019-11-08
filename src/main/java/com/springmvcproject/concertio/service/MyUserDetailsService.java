@@ -1,6 +1,12 @@
 package com.springmvcproject.concertio.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,25 +16,36 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springmvcproject.concertio.dao.AccountDao;
 import com.springmvcproject.concertio.models.Account;
+import com.springmvcproject.concertio.models.Role;
 
 
-@Component
+@Service
 public class MyUserDetailsService implements UserDetailsService {
 	
 	@Autowired
 	private AccountDao accountDao;
 	
-	@Transactional(readOnly=true)
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Account account = accountDao.findAccountByEmail(email);
-		System.out.println("User " + account );
-		
+				
 		if(account == null ) {
 			throw new UsernameNotFoundException(
-					"User " + email + " was not found in database");
+					"No user found with " + email );
 		}
 		
-		return (UserDetails) account;
+		return new User(account.getEmail(), account.getPassword(), account.isEnabled(), 
+				true, true, true, getGrantedAuthorities(account.getAccountRole()));
+	}
+	
+	
+	private List<GrantedAuthority> getGrantedAuthorities(List<Role> roles){
+		List<GrantedAuthority> privileges = new ArrayList<GrantedAuthority>();
+		
+		for(Role userRole : roles) {
+			privileges.add(new SimpleGrantedAuthority("ROLE_" + userRole.getRole()));
+		}
+		
+		return privileges;
 	}
 }

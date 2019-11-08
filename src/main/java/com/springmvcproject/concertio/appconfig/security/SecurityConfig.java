@@ -2,13 +2,17 @@ package com.springmvcproject.concertio.appconfig.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.springmvcproject.concertio.service.MyUserDetailsService;
 
@@ -21,50 +25,58 @@ import com.springmvcproject.concertio.service.MyUserDetailsService;
  */
 
 @EnableWebSecurity
+@ComponentScan(basePackages={"com.springmvcproject.concertio"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-    private UserDetailsService userDetailsService;
-	
+    private MyUserDetailsService userDetailsService;
+		
 	
 	@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
+        auth.authenticationProvider(authenticationProvider());
     }
-
-
+	
 	/**
-	 * When authentication is required, automatically redirect to the 
-	 * login page... 
-	 * A good example will be when a user is trying to like or rate a
-	 * product or service, that user needs to be authenticated before
-	 * such an action could be perform, so if the user is not authenticated
-	 * spring-security automatically redirects to the login page.
-	 * 
 	 * HELPFUL-LINK: https://docs.spring.io/spring-security/site/docs/current/guides/html5/form-javaconfig.html
 	 */
 	@Override
 	protected void configure (HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				/**
-				 * None of these urls requires authentication and any other urls
-				 * not specified here, will require authentication
-				 */
 				.antMatchers(
-						"/", 
-						"/concertio", 
-						"/concertio/about", 
-						"/concertion/account/create"
+					"/", 
+					"/concertio", 
+					"/concertio/about", 
+					"/concertion/account/create"
 				).permitAll();
 		
 		http
 			.formLogin()
 				.loginPage("/account/login")
+				.loginProcessingUrl("/login")
+				.failureUrl("/login?error")
 				.usernameParameter("email")
+				.passwordParameter("password")
+				.defaultSuccessUrl("/home")
 				.permitAll()
-				.and()
-					.logout()
-					.permitAll();
+				.and().csrf();
+		
 	}
+	
+	
+	@Bean
+	public PasswordEncoder passwordEncoder(){
+		return new BCryptPasswordEncoder();
+	}
+	
+	
+	@Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userDetailsService);
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        return authenticationProvider;
+    }
 }
