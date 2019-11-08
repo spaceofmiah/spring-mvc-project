@@ -16,18 +16,25 @@ import com.springmvcproject.concertio.service.AccountService;
 public class AccountServiceImpl implements AccountService{
 	
 	@Autowired private AccountDao accountDao;
+	
 
 	@Transactional(readOnly = false)
 	@Override
-	public boolean registerAccount(Account account, String password, Errors errors) {
+	public boolean registerAccount(Account account, Errors errors) {
 		validateEmail(account.getEmail(), errors);
 		boolean valid = !errors.hasErrors();
 		if(valid) {
-			accountDao.create(account, password);
+			accountDao.createAccount(account);
 		}
 		return valid;
 	}
 	
+	
+	/**
+	 * check that no two email exist
+	 * @param email
+	 * @param errors
+	 */
 	private void validateEmail(String email, Errors errors) {		
 		if (accountDao.findAccountByEmail(email) != null) {
 			errors.rejectValue(
