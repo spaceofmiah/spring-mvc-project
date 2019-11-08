@@ -1,13 +1,17 @@
 package com.springmvcproject.concertio.models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
@@ -27,7 +31,7 @@ public class Account {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@NotNull
 	@Column(name="email", unique=true)
@@ -54,20 +58,22 @@ public class Account {
 	@Column(name="accept_terms")
 	private boolean acceptTerms;
 	
-
-	/**
-	 * The below properties can only be true if a user
-	 * is an admin
-	 */
-	
-    @Column(name="is_active")
-    private Boolean isActive = true;    
+    @Column(name="enabled")
+    private Boolean enabled = true;    
     
-	public Integer getId() {
+    @Column(name="password")
+    private String password;
+    
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="account")
+    private List<Role> accountRole = new ArrayList<Role>();
+    
+    
+    
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -126,6 +132,31 @@ public class Account {
 
 	public void setAcceptTerms(boolean acceptTerms) {
 		this.acceptTerms = acceptTerms;
+	}
+
+	public Boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+
+	public List<Role> getAccountRole() {
+		return accountRole;
+	}
+
+	public void setAccountRole(List<Role> accountRole) {
+		this.accountRole = accountRole;
 	}
 
 	@Transient
