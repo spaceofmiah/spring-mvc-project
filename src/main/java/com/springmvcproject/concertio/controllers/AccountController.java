@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springmvcproject.concertio.formbeans.AccountCreationForm;
 import com.springmvcproject.concertio.models.Account;
@@ -22,7 +23,7 @@ import com.springmvcproject.concertio.service.AccountService;
 public class AccountController {
 	
 	private static final String VN_REG_FORM = "accountRegistration";
-	private static final String VN_REG_OK = "redirect:registration_ok";
+	private static final String VN_REG_OK = "redirect:/";
 	
 	@Autowired 
 	private AccountService accountService;
@@ -41,7 +42,7 @@ public class AccountController {
 	
 
 	
-	
+
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public String getRegistrationForm(Model model) {
@@ -50,21 +51,33 @@ public class AccountController {
 	}
 
 	
+	
 	@RequestMapping(value = "", method=RequestMethod.POST)
 	public String postRegistrationForm(
-			@ModelAttribute("account") @Valid AccountCreationForm form,
-			BindingResult result) {
-		
-		convertPasswordError(result);
-		   accountService.registerAccount(
-			toAccount(form), form.getPassword(), result
-		);
-		return (result.hasErrors() ? VN_REG_FORM : VN_REG_OK);
+		@ModelAttribute("account") @Valid AccountCreationForm form,
+		BindingResult result) {
+			convertPasswordError(result);
+			accountService.registerAccount(toAccount(form), result);
+			return (result.hasErrors() ? VN_REG_FORM : VN_REG_OK);
 	}
 	
 	
+	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String loginForm(Model model) {
+	public String loginForm(
+			@RequestParam(value = "error", required = false) String error, 
+            @RequestParam(value = "logout", required = false) String logout,
+            Model model) {
+		
+		String errorMessge = null;
+        if(error != null) {
+            errorMessge = "Username or Password is incorrect !!";
+        }
+        if(logout != null) {
+            errorMessge = "You have been successfully logged out !!";
+        }
+        
+        model.addAttribute("errorMessge", errorMessge);
 		return "loginPage";
 	}
 	
@@ -78,6 +91,7 @@ public class AccountController {
 		account.setLastName(form.getLastName());
 		account.setMiddleName(form.getMiddleName());
 		account.setAcceptTerms(form.getAcceptTerms());
+		account.setPassword(form.getPassword());
 		return account;
 	}
 	

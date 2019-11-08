@@ -1,5 +1,5 @@
 .settings/
-.properties
+db.properties
 
 # Compiled class file
 *.class
