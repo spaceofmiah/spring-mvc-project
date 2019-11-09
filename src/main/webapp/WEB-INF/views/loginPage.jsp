@@ -24,16 +24,27 @@
 				<a href="/concertio" style="font-size: 28px; color: white;">Concertio</a>
 				<p>Login</p>
 			</div>
+			
+			
+			<c:if test="${not empty error}">
+				<div class="error">${error}</div>
+			</c:if>
+			<c:if test="${not empty msg}">
+				<div class="msg">${msg}</div>
+			</c:if>
 
-			<form action="<c:url value='j_spring_security_check' />" method="POST" >
+			<form name="login" action="<c:url value="/login" />"  method="POST" >
 			
 				<div class="form_group">
-					<input type="email" id="email" class="form_input"	placeholder="Email" />
+					<input type="email" id="email" class="form_input" name="email" placeholder="Email" />
 				</div>
 
 				<div class="form_group">
-					<input type="password" id="password" class="form_input" placeholder="Password" />				
+					<input type="password" id="password" class="form_input" name="password" placeholder="Password" />				
 				</div>
+				
+				<input type="hidden" 
+                     name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 				<div class="form_group" id="register_btn_wrap">
 					<input type="submit" class="form_submit_btn" value="Login" />
