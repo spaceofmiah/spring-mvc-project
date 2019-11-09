@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,10 +21,17 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 
 
-@NamedQuery(
-		name = "findAccountByEmail",
-		query = "from Account where email = :email"
-)
+@NamedQueries({
+	@NamedQuery(
+			name = "findAccountByEmail",
+			query = "from Account where email = :email"
+	),
+	
+	@NamedQuery(
+			name = "getAllRoles",
+			query = "from Account a join Role r on a.id = r.account.id where email = :email"
+	)
+})
 @Entity
 @Table(name="Account")
 public class Account {
@@ -150,7 +158,6 @@ public class Account {
 		this.password = password;
 	}
 	
-
 	public List<Role> getAccountRole() {
 		return accountRole;
 	}

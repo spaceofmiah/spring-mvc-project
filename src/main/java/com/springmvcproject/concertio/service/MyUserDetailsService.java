@@ -10,9 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.springmvcproject.concertio.dao.AccountDao;
 import com.springmvcproject.concertio.models.Account;
@@ -30,19 +28,22 @@ public class MyUserDetailsService implements UserDetailsService {
 		Account account = accountDao.findAccountByEmail(email);
 				
 		if(account == null ) {
-			throw new UsernameNotFoundException(
-					"No user found with " + email );
+			throw new UsernameNotFoundException("No user found with " + email );
 		}
 		
 		return new User(account.getEmail(), account.getPassword(), account.isEnabled(), 
-				true, true, true, getGrantedAuthorities(account.getAccountRole()));
+				true, true, true, getGrantedAuthorities(account));
 	}
 	
 	
-	private List<GrantedAuthority> getGrantedAuthorities(List<Role> roles){
+	private List<GrantedAuthority> getGrantedAuthorities(Account account){
 		List<GrantedAuthority> privileges = new ArrayList<GrantedAuthority>();
 		
-		for(Role userRole : roles) {
+		System.out.println(accountDao.getAllRoles(account));
+		System.out.println("\n\n\n\n\n");
+		
+		
+		for(Role userRole : accountDao.getAllRoles(account)) {
 			privileges.add(new SimpleGrantedAuthority("ROLE_" + userRole.getRole()));
 		}
 		
