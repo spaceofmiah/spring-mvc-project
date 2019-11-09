@@ -1,4 +1,6 @@
 <%@ tag description="Base template tag" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 	<head>
 		<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
@@ -39,9 +41,24 @@
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="about">About</a></li>
 					<li class="nav-item">
-						<a class="nav-link btn btn-sm bg-primary text-white" href="account/create">
-							Create free account
-						</a>
+						<%-- 
+							if a user is not authenticated, display the create free account
+							button
+						 --%>
+						<sec:authorize access="!isAuthenticated()">
+						  <a class="nav-link btn btn-sm bg-primary text-white" href="account/create">
+								Create free account
+						  </a>
+						</sec:authorize>
+						
+						<%-- 
+							if a user is not authenticated, display the logout button
+						 --%>
+						<sec:authorize access="isAuthenticated()">
+						  <a class="nav-link btn btn-sm bg-danger text-white" href="account/logout">
+								logout
+						  </a>
+						</sec:authorize>
 					</li>
 				</ul>
 			</div>
@@ -86,9 +103,24 @@
 							in justo.</p>
 							
 							
-						<a class="btn btn-sm bg-primary text-white" href="account/create">
-							Create free account
-						</a>
+						<%-- 
+							if a user is not authenticated, display the create free account
+							button
+						 --%>
+						<sec:authorize access="!isAuthenticated()">
+						  <a class="nav-link btn btn-sm bg-primary text-white" href="account/create">
+								Create free account
+						  </a>
+						</sec:authorize>
+						
+						<%-- 
+							if a user is not authenticated, display the logout button
+						 --%>
+						<sec:authorize access="isAuthenticated()">
+						  <a class="nav-link btn btn-sm bg-danger text-white" href="account/logout">
+								logout
+						  </a>
+						</sec:authorize>
 					</div>
 					<!--  
 					<div class="col item social">
