@@ -1,24 +1,27 @@
 <%@ tag description="Base template tag" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 
 <html>
 	<head>
-		<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>">
 		<link rel="stylesheet"
-			href="resources/aboutPageResources/font/font-awesome.min.css">
+			href="<c:url value="/resources/aboutPageResources/font/font-awesome.min.css"/>">
 		<link rel="stylesheet"
-			href="resources/aboutPageResources/font/ionicons.min.css">
+			href="<c:url value="/resources/aboutPageResources/font/ionicons.min.css"/>">
 		<link rel="stylesheet"
-			href="resources/aboutPageResources/css/Features-Clean.css">
+			href="<c:url value="/resources/aboutPageResources/css/Features-Clean.css"/>">
 		<link rel="stylesheet"
-			href="resources/aboutPageResources/css/Footer-Dark.css">
+			href="<c:url value="/resources/aboutPageResources/css/Footer-Dark.css"/>">
 		<link rel="stylesheet"
-			href="resources/aboutPageResources/css/Navigation-Clean.css">
+			href="<c:url value="/resources/aboutPageResources/css/Navigation-Clean.css"/>">
 		<link rel="stylesheet"
-			href="resources/aboutPageResources/css/styles.css">
-		<link rel="stylesheet" href="resources/main.css">
+			href="<c:url value="/resources/aboutPageResources/css/styles.css"/>">
+		<link rel="stylesheet" href="<c:url value="/resources/main.css"/>">
 		<link rel="stylesheet"
-			href="resources/aboutPageResources/css/Testimonials.css">
+			href="<c:url value="/resources/aboutPageResources/css/Testimonials.css"/>">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	</head>
 
@@ -28,7 +31,7 @@
 		id="top_nav_bar"
 		class="navbar navbar-dark navbar-expand-md navigation-clean">
 		<div class="container">
-			<a class="navbar-brand" href="/concertio">Concertio</a>
+			<a class="navbar-brand" href="<c:url value="/" />">Concertio</a>
 			<button class="navbar-toggler" data-toggle="collapse"
 				data-target="#navcol-1">
 				<span class="sr-only">Toggle navigation</span><span
@@ -36,17 +39,17 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navcol-1">
 				<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item" role="presentation">
+					<a class="nav-link" href="<c:url value="/" />">Home</a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="/concertio">Home</a></li>
-					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="about">About</a></li>
+						href="<c:url value="/about" />">About</a></li>
 					<li class="nav-item">
 						<%-- 
 							if a user is not authenticated, display the create free account
 							button
 						 --%>
 						<sec:authorize access="!isAuthenticated()">
-						  <a class="nav-link btn btn-sm bg-primary text-white" href="account/create">
+						  <a class="nav-link btn btn-sm bg-primary text-white" href="<c:url value="/account/create" />">
 								Create free account
 						  </a>
 						</sec:authorize>
@@ -55,7 +58,7 @@
 							if a user is not authenticated, display the logout button
 						 --%>
 						<sec:authorize access="isAuthenticated()">
-						  <a class="nav-link btn btn-sm bg-danger text-white" href="account/logout">
+						  <a class="nav-link btn btn-sm bg-danger text-white" href="<c:url value="/account/logout" />">
 								logout
 						  </a>
 						</sec:authorize>
@@ -108,7 +111,7 @@
 							button
 						 --%>
 						<sec:authorize access="!isAuthenticated()">
-						  <a class="nav-link btn btn-sm bg-primary text-white" href="account/create">
+						  <a class="nav-link btn btn-sm bg-primary text-white" href="<c:url value="/account/create" />">
 								Create free account
 						  </a>
 						</sec:authorize>
@@ -117,7 +120,7 @@
 							if a user is not authenticated, display the logout button
 						 --%>
 						<sec:authorize access="isAuthenticated()">
-						  <a class="nav-link btn btn-sm bg-danger text-white" href="account/logout">
+						  <a class="nav-link btn btn-sm bg-danger text-white" href="<c:url value="/account/logout" />">
 								logout
 						  </a>
 						</sec:authorize>
