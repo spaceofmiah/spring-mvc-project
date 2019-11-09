@@ -10,15 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class CoreController {
-
-    /**
-     * non form handling controller
-     */
-
-    @RequestMapping(value = "book-hall", method = RequestMethod.GET)
-    public String BookEventRoute() {
-        return "bookEvent";
-    }
+	
 
     @RequestMapping(value = "/about", method = RequestMethod.GET)
     public String aboutUsRoute() {
@@ -35,9 +27,5 @@ public class CoreController {
         return "";
     }
     
-    @RequestMapping(value = "/event-list", method = RequestMethod.GET)
-    public String eventListRoute() {
-        return "hallList";
-    }
     
 }
