@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,6 +74,13 @@ public class AccountController {
 	public ModelAndView login(
 		@RequestParam(value = "error", required = false) String error,
 		@RequestParam(value = "logout", required = false) String logout) {
+		
+		// check if there is an authenticated account 
+		// redirect to index page if true
+		if (isAuthenticated()) {
+			return new ModelAndView("redirect:/");
+		}
+		
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
@@ -87,6 +95,20 @@ public class AccountController {
 
 		return model;
 
+	}
+	
+	
+	
+	/**
+	 * checks if an account has been authenticated
+	 * @return boolean
+	 */
+	private static boolean isAuthenticated() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (!(auth instanceof AnonymousAuthenticationToken)) {
+		    return true;
+		}
+		return false;
 	}
 	
 
