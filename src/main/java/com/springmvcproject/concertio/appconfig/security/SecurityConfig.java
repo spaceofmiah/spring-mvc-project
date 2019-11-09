@@ -43,26 +43,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	protected void configure (HttpSecurity http) throws Exception {
-		http
-			.authorizeRequests()
-				.antMatchers(
-					"/", 
-					"/concertio", 
-					"/concertio/about", 
-					"/concertion/account/create"
-				).permitAll();
-		
-		http
-			.formLogin()
-				.loginPage("/account/login")
-				.loginProcessingUrl("/login")
-				.failureUrl("/login?error")
-				.usernameParameter("email")
-				.passwordParameter("password")
-				.defaultSuccessUrl("/home")
-				.permitAll()
-				.and().csrf();
-		
+		http.authorizeRequests()
+		.antMatchers("/admin/**").access("hasRole('ROLE_USER')")
+		.and()
+		    .formLogin().loginPage("/login").failureUrl("/account/login").defaultSuccessUrl("/")
+		    .usernameParameter("email").passwordParameter("password")		
+		.and()
+		    .logout().logoutSuccessUrl("/login?logout")
+		.and()
+		    .csrf();
 	}
 	
 	
