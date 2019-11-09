@@ -11,8 +11,9 @@ import javax.persistence.Table;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+
 @Entity
-@Table(name="account_role")
+@Table(name="role")
 public class Role {
 	
 	@Id
