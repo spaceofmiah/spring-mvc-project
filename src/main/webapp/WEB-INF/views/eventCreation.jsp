@@ -1,47 +1,55 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>creationPage</title>
-    <link href="/resources/eventCreationResources/css/styles.css" rel="stylesheet" type="text/css"/>
-</head>
-
-<body>
-    <div class="creation__">
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix='t' tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<t:base>
+	<title>Add new event</title>
+	
+    <div class="container">
         <form id="create_form">
             <section id="event_create">
                 <h3>Event Creation Page</h3>
             </section>
-            <div id="row__padding">
-                <div class="row row__">
-                    <div class="col-md-4"><label class="fieldLable">Title</label></div>
-                    <div class="col-md-8"><input class="form-control formInput" type="text"></div>
-                </div>
-                <div class="row row__">
-                    <div class="col-md-4"><label class="fieldLable">Location</label></div>
-                    <div class="col-md-8"><input class="form-control formInput" type="text"></div>
-                </div>
-                <div class="row row__">
-                    <div class="col-md-4"><label class="fieldLable">Price</label></div>
-                    <div class="col-md-8"><input class="form-control formInput" type="text"></div>
-                </div>
-                <div class="row row__">
-                    <div class="col-md-4">
-                        <div><span id="park__span">Include parking Space?<br></span>
-                            <div class="form-check park__rad"><input class="form-check-input" type="radio" id="formCheck-1" name="park"><label class="form-check-label" for="formCheck-1">Yes</label></div>
-                            <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="park"><label class="form-check-label" for="formCheck-2">No</label></div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div><span id="park__span">Attach an image<br></span><input type="file" id="form__file"></div>
-                    </div>
-                </div>
-                <div class="row row__"><button class="btn btn-primary" id="event_submit" type="submit">Button</button></div>
+            
+            <div class="row">
+                
+              <div class="col-12 my-2">
+              	<label class="fieldLable">Title</label>
+              	<input class="form-control formInput" type="text">
+              </div>
+                
+              <div class="col-6 my-2">
+              	<label class="fieldLable">Location</label>
+              	<input class="form-control formInput" type="text">
+              </div>
+
+             <div class="col-6 my-2">
+             	<label class="fieldLable">Price</label>
+             	<input class="form-control formInput" type="text">
+             </div>
+                
+             <div class="col-12">
+            	<p>Include parking Space?</p>
+
+              	<label for="formCheck-1">Yes</label>
+              	&emsp;&emsp;<input class="form-check-input" type="radio" id="formCheck-1" name="park">
+              	
+              	<label for="formCheck-2">No</label>
+              	&emsp;&emsp;<input class="form-check-input" type="radio" id="formCheck-2" name="park">
+                
+             </div>
+             
+             <div class="col-12 my-2">
+                 <div>
+                 	<span id="park__span">Attach an image<br></span>
+                 	<input type="file" id="form__file">
+                 </div>
+             </div>
+         		
+         	  <div class="px-3">         	  
+             	<input type="submit" class="btn btn-primary" id="event_submit" value="Add event center" />
+         	  </div>
             </div>
         </form>
     </div>
-</body>
-
-</html>
+    
+</t:base>
