@@ -19,5 +19,10 @@ public class HallController {
     public String BookEventRoute() {
         return "bookEvent";
     }
+    
+    @RequestMapping(value = "create", method = RequestMethod.GET)
+    public String createNewEvent() {
+        return "eventCreation";
+    }
 
 }
