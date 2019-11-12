@@ -10,5 +10,5 @@ import com.springmvcproject.concertio.models.Image;
 
 public interface ImageService {
 
-	Image addNewImage(MultipartFile file, Errors error);
+	Image addNewImage(MultipartFile file, String parentHall, Errors error);
 }

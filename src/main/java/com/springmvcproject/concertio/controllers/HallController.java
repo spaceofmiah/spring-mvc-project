@@ -3,7 +3,6 @@ package com.springmvcproject.concertio.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -50,15 +49,15 @@ public class HallController {
     
     @RequestMapping(value="", method= RequestMethod.POST, headers=("content-type=multipart/*"))
     public String postHallCreationForm(
-    		@ModelAttribute("hallForm") HallCreationForm form,
+    		@ModelAttribute("hallForm") @Valid HallCreationForm form,
     		@RequestParam("file") MultipartFile file,
     		BindingResult results) {
     	
-    	// convert object to hall
+    	// convert form object to hall
     	Hall hall = toHall(form);    	
     	
     	// create image from multipart file
-    	Image image = imageService.addNewImage(form.getFile(), results);
+    	Image image = imageService.addNewImage(form.getFile(), hall.getName(), results);
     	
     	// create a new hall
     	boolean created = hallService.createNewHall(hall, image, results);
