@@ -36,22 +36,6 @@ public class AccountController {
 	@Autowired 
 	private AccountService accountService;
 	
-	
-	/**
-	 * defines the field that HTTP parameters will be bound
-	 * to and ignore unwanted form parameters.
-	 * @param binder
-	 */
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.setAllowedFields(
-			"firstName", "middleName", "lastName", "email", "password", 
-			"confirmPassword", "acceptTerms");
-	}
-	
-
-	
-
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public String getRegistrationForm(Model model) {
