@@ -9,16 +9,42 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 
 /**
  *
  * @author spaceofmiah
  */
 
+@NamedQueries({
+	@NamedQuery(
+		name="findHallByName",
+		query="from Hall where name = :name"
+	),
+	
+	/**
+	 * A very helpful link to fix error <Path expected for join>
+	 * https://stackoverflow.com/questions/10448935/hql-error-path-expected-for-join
+	 * @author spaceofmiah
+	 */
+	@NamedQuery(
+		name="getAllImages",
+		query="from Hall h join h.images i where h.id = :id"
+	)
+})
 @Entity
 @Table(name="Hall")
 public class Hall {
@@ -34,21 +60,36 @@ public class Hall {
     
     @NotNull
     @Column(name="price")
-    private Integer price;
+    private Float price;
     
     @NotNull
     @Column(name="capacity")
     private Integer capactiy;
+
+    
+    @Column(name="parking_space")
+    private Boolean parkingSpace = true;
+    
     
     @NotNull
     @Column(name="location")
     private String location;
-     
-    @Column(name="parking_space")
-    private Boolean parkingSpace;
     
-    @Column(name="is_booked")
-    private Boolean isBooked;
+    
+    
+    /**
+     * One hall to many ImageField
+     */
+    @OneToMany(mappedBy = "hall", cascade = CascadeType.ALL)
+    private Set<Image> images = new HashSet<Image>();
+    
+    
+    // method to manage the bidirectional association
+    public void addToImage(Image image) {
+        this.images.add(image);
+        image.setHall(this);
+    }
+    
 
 	public Integer getId() {
 		return id;
@@ -66,11 +107,11 @@ public class Hall {
 		this.name = name;
 	}
 
-	public Integer getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 
@@ -97,12 +138,8 @@ public class Hall {
 	public void setParkingSpace(Boolean parkingSpace) {
 		this.parkingSpace = parkingSpace;
 	}
-
-	public Boolean getIsBooked() {
-		return isBooked;
-	}
-
-	public void setIsBooked(Boolean isBooked) {
-		this.isBooked = isBooked;
+	
+	public String toString() {
+		return "<Hall " + this.getName()  + ">";
 	}
 }
