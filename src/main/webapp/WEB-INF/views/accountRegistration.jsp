@@ -35,12 +35,6 @@
 				<div class="form_group">
 					<form:input type="text" path="firstName" id="firstName"
 						placeholder="First Name" cssClass="form_input" />
-
-					<form:errors path="firstName">
-						<div class="error">
-							<form:errors path="firstName" htmlEscape="false" />
-						</div>
-					</form:errors>
 				</div>
 
 				<div class="form_group">
@@ -52,37 +46,17 @@
 				<div class="form_group">
 					<form:input type="text" path="lastName" id="lastName"
 						class="form_input" placeholder="Last Name" />
-
-					<form:errors path="lastName">
-						<div class="error">
-							<form:errors path="lastName" htmlEscape="false" />
-						</div>
-					</form:errors>
 				</div>
 
 
 				<div class="form_group">
 					<form:input type="email" path="email" id="email" class="form_input"
 						placeholder="Email" />
-
-					<form:errors path="email">
-						<div class="error">
-							<form:errors path="email" htmlEscape="false" />
-						</div>
-					</form:errors>
-
 				</div>
 
 				<div class="form_group">
 					<form:input type="password" path="password" id="password"
-						class="form_input" placeholder="Password" />
-
-					<form:errors path="password">
-						<div class="error">
-							<form:errors path="password" htmlEscape="false" />
-						</div>
-					</form:errors>
-					
+						class="form_input" placeholder="Password" />					
 				</div>
 
 				<div class="form_group">
@@ -94,12 +68,6 @@
 				<div class="form_group">
 					<form:checkbox path="acceptTerms" id="acceptTerms" />
 					<label>I accept the <a href="#">terms of use</a></label>
-					
-					<form:errors path="acceptTerms">
-						<div class="error">
-							<form:errors path="acceptTerms" htmlEscape="false" />
-						</div>
-					</form:errors>
 				</div>
 
 				<div class="form_group" id="register_btn_wrap">

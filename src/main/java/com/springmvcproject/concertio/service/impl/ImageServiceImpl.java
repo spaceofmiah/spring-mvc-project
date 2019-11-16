@@ -39,8 +39,9 @@ public class ImageServiceImpl implements ImageService {
 			newImage.setImage(file.getBytes());
 			
 			parentHall = parentHall.toLowerCase().replaceAll("\\s+", "");
+			System.out.println(parentHall);
 			String path_to_save_image = httpSession.getObject().getServletContext().getRealPath("/").toString() + 
-					 "event-images" + File.separator + "" +  parentHall;
+					 "event-images" + File.separator + "" +  parentHall.toString() + "";
 			
 			File fileObject = new File(path_to_save_image);
 			if (fileObject.mkdir()) {
