@@ -1,5 +1,7 @@
 package com.springmvcproject.concertio.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,9 +29,13 @@ public class HallServiceImpl implements HallService {
 	}
 
 	@Override
+	public List<Hall> getAllHalls() {
+		return hallDao.getAll();
+	}
+	
+	@Override
 	public void addImage(Hall hall, Errors error) {
 		// TODO Auto-generated method stub
-
-	}
+	}	
 
 }

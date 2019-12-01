@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.ObjectFactory;
@@ -25,7 +26,7 @@ import com.springmvcproject.concertio.service.ImageService;
 public class ImageServiceImpl implements ImageService {
 	
 	@Autowired
-	ObjectFactory<HttpSession> httpSession;
+	ServletContext servletContext;
 	
 	
 	@Override
@@ -38,20 +39,48 @@ public class ImageServiceImpl implements ImageService {
 			newImage.setFileType(file.getContentType());
 			newImage.setImage(file.getBytes());
 			
+			String fileNameExt = fileName.substring(fileName.length() - 3);
+			
+			
+			/**
+			 * Saving uploaded file to base directory
+			 * 
+			 * -- converts event center name to be pattern allowed for directory name
+			 * -- create path were uploaded image will be saved
+			 * -- use the page to create a directory
+			 * -- save the file 
+			 */
+		
 			parentHall = parentHall.toLowerCase().replaceAll("\\s+", "");
-			System.out.println(parentHall);
-			String path_to_save_image = httpSession.getObject().getServletContext().getRealPath("/").toString() + 
-					 "event-images" + File.separator + "" +  parentHall.toString() + "";
+			String path = "event-images" + File.separator + "" +  parentHall;
+			String path_to_save_image = servletContext.getRealPath("/") + File.separator + "resources" +
+						File.separator + path;
+			
+			/**
+			 * -- save the url to image
+			 */
+			String imageUrl = path.toString() + File.separator + "" + fileName;
+			newImage.setUrl(imageUrl);
 			
 			File fileObject = new File(path_to_save_image);
-			if (fileObject.mkdir()) {
+			boolean fileCreated = false;
+			
+			try {
+				fileCreated = fileObject.mkdirs();
+			}
+			catch(Exception e) {
+				System.out.println(e);
+			}
+			
+			
+			if (fileCreated) {
 				
 				fileObject = new File(path_to_save_image + "" + File.separator + "" + fileName);
 				
 				try(FileOutputStream outputStream = new FileOutputStream(fileObject)) {
 					
 					BufferedImage bufferedImage = ImageIO.read(file.getInputStream());
-					ImageIO.write(bufferedImage, "", outputStream);
+					ImageIO.write(bufferedImage, fileNameExt, outputStream);
 					System.out.println("Image file location: "+ fileObject.getCanonicalPath());
 					
 				} catch (IOException e) {

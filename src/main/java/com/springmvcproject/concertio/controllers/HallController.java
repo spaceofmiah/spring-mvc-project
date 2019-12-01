@@ -1,5 +1,8 @@
 package com.springmvcproject.concertio.controllers;
 
+
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +33,10 @@ public class HallController {
 	ImageService imageService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-    public String eventListRoute() {
+    public String eventListRoute(Model model) {
+		model.addAttribute("allHalls", hallService.getAllHalls());
         return "hallList";
+        
     }
 	
 	

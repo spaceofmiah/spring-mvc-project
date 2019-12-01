@@ -31,6 +31,10 @@ public class Image {
 	private String fileType;
 	
 	
+	@Column(name="image_path")
+	private String url;
+	
+	
 	@Lob 
 	@Basic(fetch = FetchType.LAZY)
     @Column(name="image", nullable=false)
@@ -73,6 +77,14 @@ public class Image {
 
 	public void setImage(byte[] image) {
 		this.image = image;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public Hall getHall() {

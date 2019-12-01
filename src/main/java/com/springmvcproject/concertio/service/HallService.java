@@ -1,5 +1,7 @@
 package com.springmvcproject.concertio.service;
 
+import java.util.List;
+
 import org.springframework.validation.Errors;
 
 import com.springmvcproject.concertio.models.Hall;
@@ -22,5 +24,11 @@ public interface HallService {
 	 * @param error any error that may occur when processing this
 	 */
 	void addImage(Hall hall, Errors error);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	List<Hall> getAllHalls();
 	
 }

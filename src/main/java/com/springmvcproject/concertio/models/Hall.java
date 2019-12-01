@@ -7,6 +7,7 @@ package com.springmvcproject.concertio.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -80,7 +81,7 @@ public class Hall {
     /**
      * One hall to many ImageField
      */
-    @OneToMany(mappedBy = "hall", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hall", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     private Set<Image> images = new HashSet<Image>();
     
     
@@ -89,7 +90,11 @@ public class Hall {
         this.images.add(image);
         image.setHall(this);
     }
-    
+        
+
+	public Set<Image> getImages() {
+		return images;
+	}
 
 	public Integer getId() {
 		return id;
